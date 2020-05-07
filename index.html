@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="bigOne">Hello World!</h1>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBH1P0wmgN8-mCVvQF5GV_3ndTAmd-xed0",
+    authDomain: "mchat-ca3c9.firebaseapp.com",
+    databaseURL: "https://mchat-ca3c9.firebaseio.com",
+    projectId: "mchat-ca3c9",
+    storageBucket: "mchat-ca3c9.appspot.com",
+    messagingSenderId: "578819422860",
+    appId: "1:578819422860:web:77b6512fa430209ab299a9",
+    measurementId: "G-K5V6V4ZXCB"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  var bigOne = document.getElementById('bigOne');
+  var dbRef = firebase.database().ref().child('text');
+  dbRef.on('value', snap => bigOne.innerText = snap.val());
+  
+</script>
+</body>
+</html>
